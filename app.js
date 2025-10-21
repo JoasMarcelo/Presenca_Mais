@@ -5,6 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
 // =================================================================================
 // CONFIGURAÇÃO E VARIÁVEIS GLOBAIS
 // =================================================================================
+const botao = document.getElementById("search-student-btn");
+
+  // Adiciona um listener para qualquer tecla pressionada
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      botao.click(); // dispara o clique no botão
+    }
+  });
+const btnConfirmar = document.getElementById("confirm-presence-btn");
+const btnNegar = document.getElementById("cancel-presence-btn");
+
+  document.addEventListener("keydown", function(event) {
+    // tecla de confirmar: "=" ou "+"
+    if (event.key === "=" || event.key === "+") {
+      event.preventDefault(); // impede de escrever no input
+      btnConfirmar.click();
+    }
+
+    // tecla de negar: "-"
+    if (event.key === "-") {
+      event.preventDefault(); // impede de escrever no input
+      btnNegar.click();
+    }
+  });
 
 const IDB_CONFIG = { dbName: 'SchoolManagerDB', storeName: 'SchoolsStore' };
 const HANDLE_DB_CONFIG = { dbName: 'AppHandlesDB', storeName: 'HandlesStore', key: 'savedDirectoryHandle' };
